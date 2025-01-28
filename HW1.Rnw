@@ -33,6 +33,7 @@
 % each time I compile
 <<eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
 # Code to install the aRtsy package
+install.packages("aRtsy")
 @
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QUESTION 1b
@@ -42,6 +43,7 @@
 \textbf{Solution:}
 % Note here I have removed eval=FALSE so this code will run
 <<size="scriptsize", warning=FALSE, message=FALSE>>=
+library("aRtsy")
 @
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QUESTION 1c
@@ -51,8 +53,11 @@
  will find a link to a tutorial. Recreate the first figure they make using 
  \texttt{canvas\_collatz()}. Make sure to update the caption.\\
 \textbf{Solution:}
+%Code for CollatzPlot1
 <<CollatzPlot1, eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
 # help("aRtsy")
+set.seed(1)
+canvas_collatz(colors = colorPalette("tuscany3"))
 @
 %Code to insert a figure [H]ere
 \begin{figure}[H]
@@ -71,7 +76,10 @@
   numbers generated to create the plot. Can you see the difference? Make sure to 
   update the caption.\\
 \textbf{Solution:}
+%Code for CollatzPlot2
 <<CollatzPlot2, eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
+set.seed(1313)
+canvas_collatz(colors = colorPalette("tuscany3"))
 @
 %Code to insert a figure [H]ere
 \begin{figure}[H]
@@ -99,7 +107,15 @@
   (note this is the default).
   \end{itemize}
 \textbf{Solution:}
+%Code for CollatzPlot3
 <<CollatzPlot3, eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
+canvas_collatz(
+  colors = colorPalette("vrolik4"),
+  background = "#dbdbdb",
+  n = 72,
+  angle.even = 0.0145,
+ angle.odd = -0.05
+)
 @
 %Code to insert a figure [H]ere
 \begin{figure}[H]
@@ -118,6 +134,27 @@
   Note that I leave creating the R chunk and figure environment to you here. 
   Make sure that your code is well-formatted and your plot is appropriately scaled.\\
   \textbf{Solution:}
+  <<CollatzPlot4, eval=FALSE, size='scriptsize', warning=FALSE, message=FALSE>>=
+canvas_phyllotaxis(
+  colors = colorPalette("vrolik4"),
+  background = "#198432",
+  iterations = 100000,
+  angle = 167.5,
+  size = 0.001,
+  alpha = 3,
+  p = 0.5
+)
+@
+%Code to insert a figure [H]ere
+\begin{figure}[H]
+\begin{center}
+<<echo=FALSE,fig.dim=c(4,4)>>=
+<<CollatzPlot4>>
+@
+\caption{A caption...}
+\label{CollatzPlot4}
+\end{center}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % QUESTION 1g
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
